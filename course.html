@@ -427,17 +427,25 @@ const courses = {
 }
 
 };
+    let params = new URLSearchParams(window.location.search);
 
+let requestedCourse = params.get("course") || "Web Development";
 
-let params = new URLSearchParams(window.location.search);
-let selectedCourse = params.get("course") || "Web Development";
+let normalize = function(name) {
+    return name.toLowerCase().replace(/[\s_-]+/g, "");
+};
+
+let selectedCourse = Object.keys(courses).find(function(courseName) {
+    return normalize(courseName) === normalize(requestedCourse);
+});
+
+if (!selectedCourse) {
+    selectedCourse = "Web Development";
+}
 
 let course = courses[selectedCourse];
 
-if(!course){
-    selectedCourse = "Web Development";
-    course = courses[selectedCourse];
-}
+
 
 document.getElementById("courseTitle").innerText = selectedCourse;
 document.getElementById("courseSubtitle").innerText = course.subtitle;
