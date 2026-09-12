@@ -4,139 +4,131 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Web Development | EduSpark</title>
+<title>Course | EduSpark</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f7fb;
-    color: #222;
-    line-height: 1.6;
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+    color:#222;
+    line-height:1.6;
 }
 
-header {
-    background: #182848;
-    color: white;
-    padding: 25px 7%;
+header{
+    background:#182848;
+    color:white;
+    padding:25px 7%;
 }
 
-header h1 {
-    font-size: 30px;
+header h1{
+    font-size:30px;
 }
 
-header p {
-    margin-top: 5px;
+header p{
+    margin-top:5px;
 }
 
-.container {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 0 20px;
+.container{
+    max-width:900px;
+    margin:30px auto;
+    padding:0 20px;
 }
 
-.lesson {
-    background: white;
-    padding: 30px;
-    margin-bottom: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+.lesson{
+    background:white;
+    padding:30px;
+    margin-bottom:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
-.lesson h2 {
-    color: #182848;
-    margin-bottom: 15px;
+.lesson h2{
+    color:#182848;
+    margin-bottom:15px;
 }
 
-.lesson h3 {
-    margin-top: 20px;
-    margin-bottom: 10px;
+.lesson h3{
+    margin-top:20px;
+    margin-bottom:10px;
 }
 
-code {
-    background: #eef2ff;
-    padding: 3px 6px;
-    border-radius: 5px;
+.lesson ul{
+    padding-left:25px;
 }
 
-.example {
-    background: #182848;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 15px;
-    overflow-x: auto;
+code{
+    background:#eef2ff;
+    padding:3px 7px;
+    border-radius:5px;
 }
 
-.example pre {
-    white-space: pre-wrap;
+.example{
+    background:#182848;
+    color:white;
+    padding:20px;
+    border-radius:10px;
+    margin-top:15px;
+    overflow:auto;
 }
 
-button {
-    background: #4b6cb7;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 15px;
-    margin-top: 15px;
+button{
+    background:#4b6cb7;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:15px;
+    margin-top:15px;
 }
 
-button:hover {
-    opacity: 0.9;
+button:hover{
+    opacity:.9;
 }
 
-.quiz-option {
-    display: block;
-    background: #f0f3f9;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-    cursor: pointer;
+.quiz{
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
-#result {
-    margin-top: 15px;
-    font-weight: bold;
+.quiz label{
+    display:block;
+    margin:12px 0;
 }
 
-.progress {
-    width: 100%;
-    height: 18px;
-    background: #ddd;
-    border-radius: 20px;
-    margin-top: 10px;
-    overflow: hidden;
+#result{
+    margin-top:15px;
+    font-weight:bold;
 }
 
-.progress-fill {
-    width: 25%;
-    height: 100%;
-    background: #4b6cb7;
+.progress-box{
+    background:#ddd;
+    height:12px;
+    border-radius:10px;
+    margin-top:15px;
 }
 
-footer {
-    background: #182848;
-    color: white;
-    text-align: center;
-    padding: 25px;
-    margin-top: 40px;
+#progressBar{
+    height:100%;
+    width:0%;
+    background:#4b6cb7;
+    border-radius:10px;
 }
 
-@media(max-width:600px) {
-    .lesson {
-        padding: 20px;
-    }
-
-    header h1 {
-        font-size: 25px;
-    }
+footer{
+    background:#182848;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
 }
 </style>
 </head>
@@ -144,164 +136,362 @@ footer {
 <body>
 
 <header>
-    <h1>💻 Web Development</h1>
-    <p>Beginner Course • EduSpark</p>
+    <h1 id="courseTitle">EduSpark Course</h1>
+    <p id="courseSubtitle">Learn smarter. Grow faster.</p>
+
+    <div class="progress-box">
+        <div id="progressBar"></div>
+    </div>
 </header>
 
 <div class="container">
 
-    <!-- COURSE PROGRESS -->
+    <div id="courseContent"></div>
 
-    <div class="lesson">
+    <div class="quiz">
+        <h2>📝 Quick Quiz</h2>
 
-        <h2>📊 Your Progress</h2>
+        <p id="quizQuestion"></p>
 
-        <p>Lesson 1 of 4 completed</p>
+        <div id="quizOptions"></div>
 
-        <div class="progress">
-            <div class="progress-fill" id="progressBar"></div>
-        </div>
-
-    </div>
-
-
-    <!-- LESSON 1 -->
-
-    <div class="lesson">
-
-        <h2>Lesson 1: Introduction to HTML</h2>
-
-        <p>
-            HTML stands for <strong>HyperText Markup Language</strong>.
-            It is used to create the basic structure of a webpage.
-        </p>
-
-        <h3>What can HTML create?</h3>
-
-        <ul>
-            <li>Headings</li>
-            <li>Paragraphs</li>
-            <li>Images</li>
-            <li>Links</li>
-            <li>Buttons</li>
-            <li>Forms</li>
-        </ul>
-
-        <h3>Basic HTML Example</h3>
-
-        <div class="example">
-
-<pre>
-&lt;!DOCTYPE html&gt;
-
-&lt;html&gt;
-
-&lt;head&gt;
-    &lt;title&gt;My Website&lt;/title&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-
-    &lt;h1&gt;Hello World!&lt;/h1&gt;
-
-    &lt;p&gt;Welcome to my website.&lt;/p&gt;
-
-&lt;/body&gt;
-
-&lt;/html&gt;
-</pre>
-
-        </div>
-
-        <h3>💡 Remember</h3>
-
-        <p>
-            HTML provides the <strong>structure</strong> of a website.
-            CSS is used for design, and JavaScript is used for
-            interactivity.
-        </p>
-
-        <button onclick="completeLesson()">
-            ✅ Mark Lesson Complete
-        </button>
-
-        <p id="completeMessage"></p>
-
-    </div>
-
-
-    <!-- MINI QUIZ -->
-
-    <div class="lesson">
-
-        <h2>🧠 Practice Quiz</h2>
-
-        <p>
-            <strong>What is HTML mainly used for?</strong>
-        </p>
-
-        <label class="quiz-option">
-            <input type="radio" name="quiz" value="correct">
-            Creating the structure of webpages
-        </label>
-
-        <label class="quiz-option">
-            <input type="radio" name="quiz" value="wrong">
-            Editing videos
-        </label>
-
-        <label class="quiz-option">
-            <input type="radio" name="quiz" value="wrong">
-            Creating operating systems
-        </label>
-
-        <button onclick="checkAnswer()">
-            Check Answer
-        </button>
+        <button onclick="checkAnswer()">Check Answer</button>
 
         <p id="result"></p>
 
-    </div>
+        <button onclick="completeLesson()">Complete Lesson</button>
 
-
-    <!-- NEXT LESSON -->
-
-    <div class="lesson">
-
-        <h2>📚 Next Lessons</h2>
-
-        <p>Lesson 2 → CSS Basics</p>
-        <p>Lesson 3 → JavaScript Basics</p>
-        <p>Lesson 4 → Build Your First Website</p>
-
+        <p id="completeMessage"></p>
     </div>
 
 </div>
 
-
 <footer>
-
-    <p>🎓 EduSpark — Learn Smarter. Grow Faster.</p>
-
+    <p>🎓 EduSpark – Learn Smarter. Grow Faster.</p>
     <p>© 2026 EduSpark</p>
-
 </footer>
 
 
 <script>
 
-function completeLesson() {
+const courses = {
 
-    document.getElementById("progressBar").style.width = "50%";
+"Web Development":{
+    subtitle:"Learn how websites are created and designed.",
+    lessons:[
+        {
+            title:"1. Introduction to Web Development",
+            text:"Web development is the process of creating websites and web applications.",
+            points:[
+                "HTML creates the structure of a webpage.",
+                "CSS controls design and appearance.",
+                "JavaScript adds interaction and functionality."
+            ],
+            example:"HTML → Structure\nCSS → Design\nJavaScript → Behaviour"
+        },
+        {
+            title:"2. HTML Basics",
+            text:"HTML stands for HyperText Markup Language. It is used to create the structure of webpages.",
+            points:[
+                "Headings use h1 to h6.",
+                "Paragraphs use p.",
+                "Links use the a tag.",
+                "Images use the img tag."
+            ],
+            example:"<h1>Hello World</h1>\n<p>Welcome to EduSpark</p>"
+        },
+        {
+            title:"3. CSS Basics",
+            text:"CSS is used to make webpages attractive and responsive.",
+            points:[
+                "Change colours and fonts.",
+                "Add spacing and borders.",
+                "Create layouts.",
+                "Make pages responsive."
+            ],
+            example:"body {\n  background: white;\n  color: #222;\n}"
+        }
+    ],
+    question:"Which language is used to structure a webpage?",
+    options:["HTML","CSS","JavaScript","SQL"],
+    answer:"HTML"
+},
 
-    document.getElementById("completeMessage").innerHTML =
-        "🎉 Lesson completed! Your progress is now 50%.";
+"Cybersecurity":{
+    subtitle:"Learn the basics of protecting computers and information.",
+    lessons:[
+        {
+            title:"1. Introduction to Cybersecurity",
+            text:"Cybersecurity protects computers, networks, applications and data from unauthorized access and attacks.",
+            points:[
+                "Protect personal information.",
+                "Secure computer systems.",
+                "Prevent unauthorized access.",
+                "Understand common cyber threats."
+            ],
+            example:"Cybersecurity = Protecting systems + networks + data"
+        },
+        {
+            title:"2. Password Security",
+            text:"Strong passwords are an important part of online security.",
+            points:[
+                "Use long passwords.",
+                "Avoid using the same password everywhere.",
+                "Use multi-factor authentication.",
+                "Never share passwords."
+            ],
+            example:"Strong password → Long + Unique + Difficult to guess"
+        },
+        {
+            title:"3. Phishing Awareness",
+            text:"Phishing attempts to trick users into revealing sensitive information.",
+            points:[
+                "Check suspicious emails carefully.",
+                "Do not blindly click unknown links.",
+                "Verify the sender.",
+                "Never share OTPs or passwords."
+            ],
+            example:"Suspicious message → Stop → Verify → Report"
+        }
+    ],
+    question:"What is one important feature of a strong password?",
+    options:["Very short","Unique and difficult to guess","Your name","123456"],
+    answer:"Unique and difficult to guess"
+},
 
-    document.getElementById("completeMessage").style.color = "green";
+"Data Structures":{
+    subtitle:"Learn arrays, stacks, queues and important programming concepts.",
+    lessons:[
+        {
+            title:"1. Introduction to Data Structures",
+            text:"Data structures are ways of organizing and storing data so that it can be used efficiently.",
+            points:[
+                "Arrays store elements in order.",
+                "Stacks follow LIFO.",
+                "Queues follow FIFO.",
+                "Linked lists connect nodes."
+            ],
+            example:"Array → [10, 20, 30, 40]"
+        },
+        {
+            title:"2. Stack",
+            text:"A stack is a linear data structure that follows Last In First Out.",
+            points:[
+                "Push adds an element.",
+                "Pop removes the top element.",
+                "Peek checks the top element.",
+                "Stacks are used in many algorithms."
+            ],
+            example:"Push 10\nPush 20\nPop → 20"
+        },
+        {
+            title:"3. Queue",
+            text:"A queue follows First In First Out.",
+            points:[
+                "Insertion happens at the rear.",
+                "Deletion happens at the front.",
+                "Queues are useful for scheduling.",
+                "Real-life example: a line of people."
+            ],
+            example:"10 → 20 → 30\nFirst inserted = First removed"
+        }
+    ],
+    question:"Which principle does a stack follow?",
+    options:["FIFO","LIFO","Random","None"],
+    answer:"LIFO"
+},
+
+"Soft Skills":{
+    subtitle:"Improve communication, teamwork, presentation skills and confidence.",
+    lessons:[
+        {
+            title:"1. Communication Skills",
+            text:"Good communication helps people express ideas clearly and understand others.",
+            points:[
+                "Speak clearly.",
+                "Listen carefully.",
+                "Use simple language.",
+                "Pay attention to body language."
+            ],
+            example:"Good communication = Speaking + Listening + Understanding"
+        },
+        {
+            title:"2. Teamwork",
+            text:"Teamwork means working together to achieve a common goal.",
+            points:[
+                "Respect team members.",
+                "Share responsibilities.",
+                "Help others.",
+                "Accept constructive feedback."
+            ],
+            example:"Team success = Cooperation + Trust + Responsibility"
+        },
+        {
+            title:"3. Confidence",
+            text:"Confidence helps you present your ideas and communicate effectively.",
+            points:[
+                "Prepare before speaking.",
+                "Maintain positive body language.",
+                "Practice regularly.",
+                "Learn from mistakes."
+            ],
+            example:"Practice → Experience → Confidence"
+        }
+    ],
+    question:"Which is an important part of good communication?",
+    options:["Ignoring others","Listening carefully","Shouting","Avoiding communication"],
+    answer:"Listening carefully"
+},
+
+"Python Basics":{
+    subtitle:"Learn variables, loops, functions and basic programming concepts.",
+    lessons:[
+        {
+            title:"1. Introduction to Python",
+            text:"Python is a popular high-level programming language known for its simple syntax.",
+            points:[
+                "Python is beginner friendly.",
+                "It supports many programming styles.",
+                "It is widely used in software and data applications.",
+                "Python uses indentation to define blocks."
+            ],
+            example:"print('Hello, EduSpark!')"
+        },
+        {
+            title:"2. Variables",
+            text:"Variables are used to store values in a program.",
+            points:[
+                "Variables can store numbers.",
+                "Variables can store text.",
+                "Values can be changed.",
+                "Python does not require declaring the type explicitly."
+            ],
+            example:"name = 'Tanu'\nage = 20"
+        },
+        {
+            title:"3. Loops",
+            text:"Loops allow a program to repeat a block of code.",
+            points:[
+                "for loops repeat over a sequence.",
+                "while loops repeat while a condition is true.",
+                "Loops reduce repeated code."
+            ],
+            example:"for i in range(5):\n    print(i)"
+        }
+    ],
+    question:"Which function displays output in Python?",
+    options:["show()","print()","displayText()","output()"],
+    answer:"print()"
+},
+
+"Database & SQL":{
+    subtitle:"Understand databases, tables, SQL queries and data management.",
+    lessons:[
+        {
+            title:"1. Introduction to Databases",
+            text:"A database is an organized collection of information that can be stored and managed efficiently.",
+            points:[
+                "Databases store structured information.",
+                "Tables contain rows and columns.",
+                "Databases can be searched using queries.",
+                "They are widely used in applications."
+            ],
+            example:"Students Table\nID | Name | Course"
+        },
+        {
+            title:"2. SQL Basics",
+            text:"SQL stands for Structured Query Language and is used to communicate with relational databases.",
+            points:[
+                "SELECT retrieves data.",
+                "INSERT adds data.",
+                "UPDATE changes data.",
+                "DELETE removes data."
+            ],
+            example:"SELECT * FROM students;"
+        },
+        {
+            title:"3. Tables",
+            text:"Tables organize information using rows and columns.",
+            points:[
+                "Rows represent records.",
+                "Columns represent attributes.",
+                "Primary keys identify records.",
+                "Tables can be related."
+            ],
+            example:"ID | Name | Age\n1  | Rahul | 20"
+        }
+    ],
+    question:"Which SQL command is used to retrieve data?",
+    options:["SELECT","DELETE","UPDATE","INSERT"],
+    answer:"SELECT"
 }
 
+};
 
-function checkAnswer() {
+
+let params = new URLSearchParams(window.location.search);
+let selectedCourse = params.get("course") || "Web Development";
+
+let course = courses[selectedCourse];
+
+if(!course){
+    selectedCourse = "Web Development";
+    course = courses[selectedCourse];
+}
+
+document.getElementById("courseTitle").innerText = selectedCourse;
+document.getElementById("courseSubtitle").innerText = course.subtitle;
+
+let content = "";
+
+course.lessons.forEach(function(lesson){
+
+    content += `
+    <div class="lesson">
+
+        <h2>${lesson.title}</h2>
+
+        <p>${lesson.text}</p>
+
+        <h3>What you will learn:</h3>
+
+        <ul>
+            ${lesson.points.map(function(point){
+                return `<li>${point}</li>`;
+            }).join("")}
+        </ul>
+
+        <div class="example">
+            <pre>${lesson.example}</pre>
+        </div>
+
+    </div>
+    `;
+
+});
+
+document.getElementById("courseContent").innerHTML = content;
+
+
+document.getElementById("quizQuestion").innerText = course.question;
+
+let optionsHTML = "";
+
+course.options.forEach(function(option){
+
+    optionsHTML += `
+    <label>
+        <input type="radio" name="quiz" value="${option}">
+        ${option}
+    </label>
+    `;
+
+});
+
+document.getElementById("quizOptions").innerHTML = optionsHTML;
+
+
+function checkAnswer(){
 
     let selected =
         document.querySelector('input[name="quiz"]:checked');
@@ -309,31 +499,35 @@ function checkAnswer() {
     let result =
         document.getElementById("result");
 
-    if (!selected) {
+    if(!selected){
 
-        result.innerHTML =
-            "⚠️ Please select an answer.";
-
+        result.innerHTML = "⚠️ Please select an answer.";
         result.style.color = "orange";
-
         return;
     }
 
-    if (selected.value === "correct") {
+    if(selected.value === course.answer){
 
-        result.innerHTML =
-            "🎉 Correct! You understand the basics of HTML.";
-
+        result.innerHTML = "🎉 Correct! Great job.";
         result.style.color = "green";
 
-    } else {
+    }else{
 
-        result.innerHTML =
-            "❌ Incorrect. Try again!";
-
+        result.innerHTML = "❌ Incorrect. Try again!";
         result.style.color = "red";
 
     }
+}
+
+
+function completeLesson(){
+
+    document.getElementById("progressBar").style.width = "100%";
+
+    document.getElementById("completeMessage").innerHTML =
+        "🎉 Course completed! Keep learning and growing!";
+
+    document.getElementById("completeMessage").style.color = "green";
 }
 
 </script>
