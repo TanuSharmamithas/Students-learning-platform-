@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EduSpark | Student Learning Platform</title>
+
+<style>
+
+/* =========================
+   BASIC STYLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    background: #182848;
+    color: white;
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffd166;
+}
+
+#themeBtn {
+    background: #ffd166;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    background: linear-gradient(135deg, #182848, #4b6cb7);
+    color: white;
+    padding: 90px 7%;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 18px;
+}
+
+.hero button {
+    margin-top: 25px;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #ffd166;
+    color: #182848;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+section {
+    padding: 60px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    color: #182848;
+}
+
+.section-title p {
+    color: #666;
+}
+
+/* =========================
+   COURSE SEARCH
+========================= */
+
+.search-box {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.search-box input {
+    width: 90%;
+    max-width: 500px;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+/* =========================
+   COURSE CARDS
+========================= */
+
+.course-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.course-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-6px);
+}
+
+.course-icon {
+    font-size: 40px;
+}
+
+.course-card h3 {
+    margin: 10px 0;
+    color: #182848;
+}
+
+.course-card button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    background: #4b6cb7;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.feature {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+}
+
+.feature-icon {
+    font-size: 35px;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-box {
+    background: white;
+    max-width: 650px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.option {
+    display: block;
+    padding: 12px;
+    margin: 10px 0;
+    background: #f0f3f9;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #dce5ff;
+}
+
+.quiz-box button {
+    margin-top: 15px;
+    padding: 12px 22px;
+    background: #182848;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-box {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 65%;
+    background: #4b6cb7;
+}
+
+/* =========================
+   AI ASSISTANT
+========================= */
+
+.ai-box {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.ai-box input {
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.ai-box button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 20px;
+    background: #4b6cb7;
+    color: white;
+    cursor: pointer;
+}
+
+#aiAnswer {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f0f3f9;
+    border-radius: 10px;
+    display: none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #182848;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+.dark {
+    background: #101522;
+    color: white;
+}
+
+.dark .course-card,
+.dark .feature,
+.dark .quiz-box,
+.dark .progress-box,
+.dark .ai-box {
+    background: #1c2435;
+    color: white;
+}
+
+.dark .section-title h2,
+.dark .course-card h3 {
+    color: #ffd166;
+}
+
+.dark .section-title p {
+    color: #ccc;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px) {
+
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav ul {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+
+    .ai-box input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+    <div class="logo">🎓 EduSpark</div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#progress">Progress</a></li>
+    </ul>
+
+    <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <h1>Learn Smarter. Grow Faster.</h1>
+
+    <p>
+        EduSpark is a student-friendly learning platform that helps
+        beginners learn programming, technology and important skills
+        through simple lessons, quizzes and practice.
+    </p>
+
+    <button onclick="scrollToCourses()">
+        Explore Courses 🚀
+    </button>
+
+</section>
+
+
+<!-- =========================
+     WHY EDUSPARK
+========================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>Why EduSpark?</h2>
+
+        <p>
+            Everything students need to start their learning journey.
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">📚</div>
+            <h3>Easy Learning</h3>
+            <p>
+                Beginner-friendly explanations designed for students.
+            </p>
+        </div>
+
+
+        <div class="feature">
+            <div class="feature-icon">📝</div>
+            <h3>Practice Quizzes</h3>
+            <p>
+                Test your knowledge and improve your understanding.
+            </p>
+        </div>
+
+
+        <div class="feature">
+            <div class="feature-icon">📊</div>
+            <h3>Track Progress</h3>
+            <p>
+                Monitor your learning progress and stay motivated.
+            </p>
+        </div>
+
+
+        <div class="feature">
+            <div class="feature-icon">🤖</div>
+            <h3>Study Assistant</h3>
+            <p>
+                Get simple explanations when you are stuck.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COURSES
+========================= -->
+
+<section id="courses">
+
+    <div class="section-title">
+
+        <h2>📚 Explore Courses</h2>
+
+        <p>
+            Start learning the skills you need for your future.
+        </p>
+
+    </div>
+
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="courseSearch"
+            placeholder="🔎 Search courses..."
+            onkeyup="searchCourses()"
+        >
+
+    </div>
+
+
+    <div class="course-container" id="courseContainer">
+
+
+        <div class="course-card">
+
+            <div class="course-icon">💻</div>
+
+            <h3>Web Development</h3>
+
+            <p>
+                Learn HTML, CSS and JavaScript and create modern websites
+                from scratch.
+            </p>
+
+            <button onclick="startCourse('Web Development')">
+                Start Learning
+            </button>
+
+        </div>
+
+
+        <div class="course-card">
+
+            <div class="course-icon">🐍</div>
+
+            <h3>Python Basics</h3>
+
+            <p>
+                Learn variables, loops, functions and basic programming
+                concepts using Python.
+            </p>
+
+            <button onclick="startCourse('Python Basics')">
+                Start Learning
+            </button>
+
+        </div>
+
+
+        <div class="course-card">
+
+            <div class="course-icon">🗄️</div>
+
+            <h3>Database & SQL</h3>
+
+            <p>
+                Understand databases, tables, SQL queries and
+                fundamental data management.
+            </p>
+
+            <button onclick="startCourse('Database & SQL')">
+                Start Learning
+            </button>
+
+        </div>
+
+
+        <div class="course-card">
+
+            <div class="course-icon">🧠</div>
+
+            <h3>Data Structures</h3>
+
+            <p>
+                Learn arrays, stacks, queues and other important
+                programming concepts.
+            </p>
+
+            <button onclick="startCourse('Data Structures')">
+                Start Learning
+            </button>
+
+        </div>
+
+
+        <div class="course-card">
+
+            <div class="course-icon">🎯</div>
+
+            <h3>Soft Skills</h3>
+
+            <p>
+                Improve communication, presentation skills,
+                teamwork and confidence.
+            </p>
+
+            <button onclick="startCourse('Soft Skills')">
+                Start Learning
+            </button>
+
+        </div>
+
+
+        <div class="course-card">
+
+            <div class="course-icon">🔐</div>
+
+            <h3>Cyber Security</h3>
+
+            <p>
+                Understand basic cybersecurity concepts and learn
+                how to stay safe online.
+            </p>
+
+            <button onclick="startCourse('Cyber Security')">
+                Start Learning
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     QUIZ
+========================= -->
+
+<section id="quiz">
+
+    <div class="section-title">
+
+        <h2>📝 Quick Knowledge Quiz</h2>
+
+        <p>Test your programming basics.</p>
+
+    </div>
+
+
+    <div class="quiz-box">
+
+        <h3>
+            Question 1: What does HTML stand for?
+        </h3>
+
+
+        <label class="option">
+            <input type="radio" name="answer" value="correct">
+            Hyper Text Markup Language
+        </label>
+
+
+        <label class="option">
+            <input type="radio" name="answer" value="wrong">
+            High Technology Modern Language
+        </label>
+
+
+        <label class="option">
+            <input type="radio" name="answer" value="wrong">
+            Hyperlink Text Management Language
+        </label>
+
+
+        <button onclick="checkQuiz()">
+            Check Answer
+        </button>
+
+
+        <p id="quizResult"></p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROGRESS
+========================= -->
+
+<section id="progress">
+
+    <div class="section-title">
+
+        <h2>📊 My Learning Progress</h2>
+
+        <p>Keep learning and reach your goals.</p>
+
+    </div>
+
+
+    <div class="progress-box">
+
+        <h3>Web Development</h3>
+
+        <p>65% completed</p>
+
+        <div class="progress-bar">
+
+            <div class="progress-fill" id="progressFill"></div>
+
+        </div>
+
+        <br>
+
+        <p>🔥 Learning streak: 5 days</p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     AI STUDY ASSISTANT
+========================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>🤖 AI Study Assistant</h2>
+
+        <p>
+            Ask a simple question and get a beginner-friendly explanation.
+        </p>
+
+    </div>
+
+
+    <div class="ai-box">
+
+        <input
+            type="text"
+            id="aiQuestion"
+            placeholder="Example: What is HTML?"
+        >
+
+        <button onclick="askAssistant()">
+            Ask
+        </button>
+
+
+        <div id="aiAnswer"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h3>🎓 EduSpark</h3>
+
+    <p>
+        Empowering students through accessible and engaging learning.
+    </p>
+
+    <p>
+        © 2026 EduSpark | Student Learning Platform
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+   DARK MODE
+========================= */
+
+function toggleTheme() {
+
+    document.body.classList.toggle("dark");
+
+    let button = document.getElementById("themeBtn");
+
+    if (document.body.classList.contains("dark")) {
+
+        button.innerHTML = "☀️";
+
+    } else {
+
+        button.innerHTML = "🌙";
+
+    }
+
+}
+
+
+/* =========================
+   SCROLL TO COURSES
+========================= */
+
+function scrollToCourses() {
+
+    document.getElementById("courses").scrollIntoView();
+
+}
+
+
+/* =========================
+   START COURSE
+========================= */
+
+function startCourse(courseName) {
+
+    alert(
+        "🎉 Great choice!\n\n" +
+        "You selected: " + courseName +
+        "\n\nYour learning journey starts now!"
+    );
+
+}
+
+
+/* =========================
+   COURSE SEARCH
+========================= */
+
+function searchCourses() {
+
+    let input =
+        document.getElementById("courseSearch")
+        .value
+        .toLowerCase();
+
+    let cards =
+        document.querySelectorAll(".course-card");
+
+
+    cards.forEach(function(card) {
+
+        let text =
+            card.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function checkQuiz() {
+
+    let answer =
+        document.querySelector(
+            'input[name="answer"]:checked'
+        );
+
+    let result =
+        document.getElementById("quizResult");
+
+
+    if (!answer) {
+
+        result.innerHTML =
+            "⚠️ Please select an answer.";
+
+        result.style.color = "orange";
+
+        return;
+
+    }
+
+
+    if (answer.value === "correct") {
+
+        result.innerHTML =
+            "🎉 Correct! Great job!";
+
+        result.style.color = "green";
+
+        document.getElementById("progressFill").style.width = "75%";
+
+    } else {
+
+        result.innerHTML =
+            "❌ Not quite. Try again!";
+
+        result.style.color = "red";
+
+    }
+
+}
+
+
+/* =========================
+   AI STUDY ASSISTANT
+========================= */
+
+function askAssistant() {
+
+    let question =
+        document.getElementById("aiQuestion")
+        .value
+        .toLowerCase();
+
+    let answer =
+        document.getElementById("aiAnswer");
+
+
+    answer.style.display = "block";
+
+
+    if (question.includes("html")) {
+
+        answer.innerHTML =
+            "💡 <b>HTML</b> stands for HyperText Markup Language. " +
+            "It is used to create the structure of web pages.";
+
+    }
+
+    else if (question.includes("css")) {
+
+        answer.innerHTML =
+            "💡 <b>CSS</b> stands for Cascading Style Sheets. " +
+            "It is used to design and style websites.";
+
+    }
+
+    else if (question.includes("javascript")) {
+
+        answer.innerHTML =
+            "💡 <b>JavaScript</b> is a programming language used " +
+            "to make websites interactive and dynamic.";
+
+    }
+
+    else if (question.includes("python")) {
+
+        answer.innerHTML =
+            "💡 <b>Python</b> is a beginner-friendly programming " +
+            "language used in web development, automation, AI and data science.";
+
+    }
+
+    else {
+
+        answer.innerHTML =
+            "🤔 I am still learning! Try asking about " +
+            "<b>HTML, CSS, JavaScript or Python</b>.";
+
+    }
+
+}
+
+</script>
+
+</body>
+  </html>
